@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:       
       - name: Get code
-        uses: actions/checkout@v3        
+        uses: actions/checkout@v4        
       - name: Install dependencies
         uses: actions/setup-node@v4    
         with:
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install dependencies
         uses: actions/setup-node@v4    
         with:
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install dependencies
         uses: actions/setup-node@v4    
         with:
@@ -55,7 +55,7 @@ jobs:
           npm run build
           node --version
       - name: upload-artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist-files
           path: dist
@@ -65,13 +65,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Build Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist-files
       - name: Output contents
         run: ls -R
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install dependencies
         uses: actions/setup-node@v4    
         with:
