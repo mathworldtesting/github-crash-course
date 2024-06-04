@@ -27,14 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Test code
-        run: npm run test
-      - name: upload-artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist-files
-          path: |
-            dist
-            test-results
+        run: npm run test      
           
   build:
     needs: test
@@ -46,6 +39,13 @@ jobs:
         run: npm ci
       - name: Build code
         run: npm run build
+      - name: upload-artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: |
+            dist
+            test-results
 
   deploy:
     needs: build
